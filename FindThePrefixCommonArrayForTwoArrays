@@ -1,0 +1,15 @@
+class Solution:
+    def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
+        n=len(A)
+        prefixArray=[0]*n
+        elementsInA=set()
+        elementsInB=set()
+        for i in range(n):
+            elementsInA.add(A[i])
+            elementsInB.add(B[i])
+            c=0
+            for element in elementsInA:
+                if element in elementsInB:
+                    c+=1
+            prefixArray[i]=c
+        return prefixArray
